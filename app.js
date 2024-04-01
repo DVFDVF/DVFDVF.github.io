@@ -1,4 +1,4 @@
-// navigator.serviceWorker.register("dummy-sw.js");
+navigator.serviceWorker.register("dummy-sw.js");
 
 // 检测浏览器是否支持SW;
 if ("serviceWorker" in navigator) {
@@ -43,7 +43,7 @@ window.addEventListener("beforeinstallprompt", (e) => {
   // e.preventDefault();
   // Save the event because you’ll need to trigger it later.
   deferredPrompt = e;
-  console.log(deferredPrompt);
+  console.log(deferredPrompt, "有没有啊");
   // Show your customized install prompt for your PWA
   document.querySelector("#install").style.display = "block";
   showResult("✅ BeforeInstallPromptEvent fired", true);
