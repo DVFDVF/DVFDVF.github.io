@@ -31,8 +31,9 @@ let deferredPrompt;
 window.addEventListener("beforeinstallprompt", (e) => {
   // Prevents the default mini-infobar or install dialog from appearing on mobile
   e.preventDefault();
-  // Save the event because you’ll need to trigger it later.
   deferredPrompt = e;
+  deferredPrompt.prompt();
+  // Save the event because you’ll need to trigger it later.
   console.log(deferredPrompt, "有没有啊");
   // Show your customized install prompt for your PWA
   document.querySelector("#install").style.display = "block";
