@@ -78,14 +78,3 @@ function showResult(text, append = false) {
     document.querySelector("output").innerHTML = text;
   }
 }
-window.OneSignalDeferred = window.OneSignalDeferred || [];
-window.OneSignalDeferred.push(async function (OneSignal) {
-  await OneSignal.init({
-    appId: "YOUR_APP_ID",
-    notifyButton: {
-      enable: true,
-    },
-    serviceWorkerParam: { scope: "/myPath/myCustomScope/" },
-    serviceWorkerPath: "myPath/OneSignalSDKWorker.js",
-  });
-});

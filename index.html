@@ -44,4 +44,18 @@ SPDX-License-Identifier: Apache-2.0 -->
     </div>
   </body>
 </html>
-<script></script>
+<script>
+  window.onload = function () {
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    window.OneSignalDeferred.push(async function (OneSignal) {
+      await OneSignal.init({
+        appId: "9bccb14b-babe-4c89-9fba-fd17081ce45a",
+        notifyButton: {
+          enable: true,
+        },
+        serviceWorkerParam: { scope: "/myPath/myCustomScope/" },
+        serviceWorkerPath: "myPath/OneSignalSDKWorker.js",
+      });
+    });
+  };
+</script>
