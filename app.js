@@ -12,16 +12,6 @@ if ("serviceWorker" in navigator) {
       console.error("Service Worker 1 注册失败:", error);
     });
 
-  // 注册第二个 Service Worker
-  navigator.serviceWorker
-    .register("/sw.js")
-    .then(function (registration) {
-      console.log("Service Worker 2 注册成功:", registration);
-    })
-    .catch(function (error) {
-      console.error("Service Worker 2 注册失败:", error);
-    });
-
   // 以此类推，注册更多的 Service Worker
 } else {
   console.warn("当前浏览器不支持 Service Worker.");
@@ -40,7 +30,7 @@ let deferredPrompt;
 
 window.addEventListener("beforeinstallprompt", (e) => {
   // Prevents the default mini-infobar or install dialog from appearing on mobile
-  // e.preventDefault();
+  e.preventDefault();
   // Save the event because you’ll need to trigger it later.
   deferredPrompt = e;
   console.log(deferredPrompt, "有没有啊");
