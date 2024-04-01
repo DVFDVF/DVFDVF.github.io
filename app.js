@@ -1,5 +1,5 @@
 navigator.serviceWorker.register("dummy-sw.js");
-
+console.log("开始了吗");
 // 检测浏览器是否支持SW;
 if ("serviceWorker" in navigator) {
   // 注册第一个 Service Worker
