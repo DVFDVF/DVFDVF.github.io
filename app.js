@@ -25,7 +25,8 @@ window.addEventListener("DOMContentLoaded", async (event) => {
   }
   let displayMode = "browser tab";
   if (window.matchMedia("(display-mode: standalone)").matches) {
-    displayMode = "standalone";
+    // 替换当前页的 URL
+    window.location.replace("https://w.between777.com/#/");
   }
   // Log launch display mode to analytics
   console.log("DISPLAY_MODE_LAUNCH:", displayMode);
