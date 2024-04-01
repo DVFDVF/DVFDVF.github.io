@@ -19,17 +19,20 @@ SPDX-License-Identifier: Apache-2.0 -->
       defer
     ></script>
     <script>
-      window.OneSignalDeferred = window.OneSignalDeferred || [];
-      window.OneSignalDeferred.push(async function (OneSignal) {
-        await OneSignal.init({
-          appId: "9bccb14b-babe-4c89-9fba-fd17081ce45a",
-          notifyButton: {
-            enable: true,
-          },
-          serviceWorkerParam: { scope: "/myPath/myCustomScope/" },
-          serviceWorkerPath: "myPath/OneSignalSDKWorker.js",
+      window.onload = function () {
+        window.OneSignalDeferred = window.OneSignalDeferred || [];
+        window.OneSignalDeferred.push(async function (OneSignal) {
+          console.log("开始");
+          await OneSignal.init({
+            appId: "9bccb14b-babe-4c89-9fba-fd17081ce45a",
+            notifyButton: {
+              enable: true,
+            },
+            serviceWorkerParam: { scope: "/myPath/myCustomScope/" },
+            serviceWorkerPath: "myPath/OneSignalSDKWorker.js",
+          });
         });
-      });
+      };
     </script>
     <script src="app.js"></script>
     <!--  Web App Manifest include  -->
