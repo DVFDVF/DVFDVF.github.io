@@ -13,6 +13,10 @@ SPDX-License-Identifier: Apache-2.0 -->
       name="apple-mobile-web-app-status-bar-style"
       content="black-translucent"
     />
+    <script
+      src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js"
+      defer
+    ></script>
     <script src="app.js"></script>
     <!--  Web App Manifest include  -->
     <link rel="manifest" href="manifest.json" />
@@ -25,6 +29,7 @@ SPDX-License-Identifier: Apache-2.0 -->
     <script src="https://cdn.jsdelivr.net/npm/workbox-sw@4.3.1/build/workbox-sw.min.js"></script>
   </head>
   <body>
+    <div class="onesignal-customlink-container"></div>
     <div class="container">
       <h1>Installation Prompt Demo</h1>
       <p class="instructions">
@@ -37,4 +42,11 @@ SPDX-License-Identifier: Apache-2.0 -->
     </div>
   </body>
 </html>
-<script></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(function (OneSignal) {
+    OneSignal.init({
+      appId: "9bccb14b-babe-4c89-9fba-fd17081ce45a",
+    });
+  });
+</script>
