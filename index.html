@@ -16,7 +16,11 @@ SPDX-License-Identifier: Apache-2.0 -->
     <!-- <script src="OneSignalSDKWorker.js"></script> -->
     <script
       src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js"
-      defer
+      async
+    ></script>
+    <script
+      src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js"
+      async
     ></script>
     <script src="app.js"></script>
     <!--  Web App Manifest include  -->
@@ -44,18 +48,17 @@ SPDX-License-Identifier: Apache-2.0 -->
   </body>
 </html>
 <script>
-  window.OneSignalDeferred.push(async function (OneSignal) {
-    await OneSignal.init({
-      appId: "9bccb14b-babe-4c89-9fba-fd17081ce45a",
-      notifyButton: {
-        enable: true,
-      },
-      serviceWorkerParam: { scope: "/myPath/myCustomScope/" },
-      serviceWorkerPath: "myPath/OneSignalSDKWorker.js",
+  window.onload = function () {
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    window.OneSignalDeferred.push(async function (OneSignal) {
+      await OneSignal.init({
+        appId: "9bccb14b-babe-4c89-9fba-fd17081ce45a",
+        notifyButton: {
+          enable: true,
+        },
+        serviceWorkerParam: { scope: "/myPath/myCustomScope/" },
+        serviceWorkerPath: "myPath/OneSignalSDKWorker.js",
+      });
     });
-  });
+  };
 </script>
-<!-- <script
-  src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js"
-  async
-></script> -->
