@@ -23,17 +23,12 @@ window.addEventListener("DOMContentLoaded", async (event) => {
   } else {
     showResult("❌ BeforeInstallPromptEvent NOT supported");
   }
-  window
-    .matchMedia("(display-mode: standalone)")
-    .addEventListener("change", (evt) => {
-      let displayMode = "browser";
-      if (evt.matches) {
-        // 替换当前页的 URL
-        window.location.replace("https://w.between777.com/#/");
-      }
-      // Log display mode change to analytics
-      console.log("DISPLAY_MODE_CHANGED", displayMode);
-    });
+  let displayMode = "browser tab";
+  if (window.matchMedia("(display-mode: standalone)").matches) {
+    displayMode = "standalone";
+  }
+  // Log launch display mode to analytics
+  console.log("DISPLAY_MODE_LAUNCH:", displayMode);
   document.querySelector("#install").addEventListener("click", installApp);
 });
 
