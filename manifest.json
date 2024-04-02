@@ -1,7 +1,7 @@
 {
   "name": "BETWEEN",
   "short_name": "BETWEEN",
-  "start_url": "./redirect.html",
+  "start_url": "./index.html",
   "display": "fullscreen",
   "background_color": "#fff",
   "theme_color": "#3eaf7c",
