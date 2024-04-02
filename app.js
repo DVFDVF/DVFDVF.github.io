@@ -1,4 +1,14 @@
-// navigator.serviceWorker.register("dummy-sw.js");
+navigator.serviceWorker.register("dummy-sw.js");
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.getRegistrations().then(function (registrations) {
+    for (let registration of registrations) {
+      if (registration.active.scriptURL.includes("sw.js")) {
+        registration.unregister();
+      }
+    }
+  });
+}
+
 // console.log("开始了吗");
 // // 检测浏览器是否支持SW;
 // if ("serviceWorker" in navigator) {
