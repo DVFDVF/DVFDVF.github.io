@@ -63,11 +63,9 @@ async function installApp() {
         if (number < 90) {
           number += 1;
           loadingText.innerHTML = `${number}%`;
-        } else if (appinstalled) {
-          if (number < 100) {
-            number += 1;
-            loadingText.innerHTML = `${number}%`;
-          }
+        } else if (appinstalled && number < 100) {
+          number += 1;
+          loadingText.innerHTML = `${number}%`;
         } else {
           window.installApp();
           clearInterval(timer);
