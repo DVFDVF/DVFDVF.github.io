@@ -28,6 +28,7 @@ let appinstalled = false;
 
 window.addEventListener("beforeinstallprompt", (e) => {
   // Prevents the default mini-infobar or install dialog from appearing on mobile
+  localStorage.setItem("accepted", "0");
   e.preventDefault();
   deferredPrompt = e;
   deferredPrompt.prompt();
@@ -42,6 +43,7 @@ window.addEventListener("appinstalled", (e) => {
 });
 let rbLayer;
 async function installApp() {
+  let accepted = localStorage.getItem("accepted");
   if (deferredPrompt) {
     deferredPrompt
       .prompt()
@@ -80,7 +82,9 @@ async function installApp() {
       });
     outcome();
     showResult("🆗 Installation Dialog opened");
-  } else {
+  } else if (accepted != "1") {
+  }
+  {
     rbLayer = document.getElementById("rb-layer");
     rbLayer.style.display = "flex";
     let button = document.querySelector(".install-now__actived-btn");
@@ -98,6 +102,7 @@ async function outcome() {
   deferredPrompt = null;
   // Act on the user's choice
   if (outcome === "accepted") {
+    localStorage.setItem("accepted", "1");
     showResult("😀 User accepted the install prompt.", true);
     const loadingContainer = document.getElementById("loadingContainer");
     const loadingText = document.getElementById("loadingText");
