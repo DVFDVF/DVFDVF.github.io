@@ -71,6 +71,8 @@ async function installApp() {
           clearInterval(timer);
           loadingText.innerHTML = `${number}%`;
           loadingContainer.style.display = "none";
+          const tipMain = document.getElementById("tipMain");
+          tipMain.style.display = "flex";
         }
       }, 80);
     } else if (outcome === "dismissed") {

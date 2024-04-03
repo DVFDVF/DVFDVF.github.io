@@ -49,7 +49,7 @@
     <link rel="manifest" href="manifest.json" />
     <!-- iOS and iPadOS icon -->
     <link rel="apple-touch-icon" href="/img/icon.jpg" />
-  <script src="https://cdn.jsdelivr.net/npm/workbox-sw@4.3.1/build/workbox-sw.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/workbox-sw@4.3.1/build/workbox-sw.min.js"></script>
 
     <style
       data-href="https://www.gstatic.com/_/boq-play/_/ss/k=boq-play.PlayStoreUi.ZV9jlHwj6ic.L.B1.O/am=6_ZgdMFgBCnziiw/d=1/ed=1/rs=AB1caFWIMUlAWa9Tosmcr5RXQIFsJQ6PUA/m=appdetailsview,_b,_tp"
@@ -28611,6 +28611,52 @@
 
       /*# sourceURL=/_/boq-play/_/ss/k=boq-play.PlayStoreUi.ZV9jlHwj6ic.L.B1.O/am=6_ZgdMFgBCnziiw/d=1/ed=1/rs=AB1caFWIMUlAWa9Tosmcr5RXQIFsJQ6PUA/m=appdetailsview,_b,_tp */
     </style>
+      <style>
+        .tip-main {
+          position: fixed;
+          left: 10%;
+          width: 80%;
+          padding: 10px 50px;
+          border-radius: 50px;
+          background: white;
+          display: none;
+          flex-direction: row;
+          border: 1px solid rgba(128, 128, 128, 0.664);
+          animation: slideAndDisappear 3s forwards;
+          /* position: relative; */
+        }
+        .tip-icon {
+          width: 50px;
+        }
+        .tip-content {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 5px;
+          margin-left: 20px;
+        }
+        .tip-title {
+          font-size: 20px;
+        }
+        .tip-text {
+          color: rgb(27, 160, 116);
+          font-weight: 800;
+        }
+        @keyframes slideAndDisappear {
+          0% {
+            transform: translate(0, -100px);
+          }
+          20% {
+            transform: translate(0, 20px);
+          }
+          80% {
+            transform: translate(0, 20px);
+          }
+          100% {
+            transform: translate(0, -100px);
+          }
+        }
+      </style>
     <!-- 加载样式 -->
     <style>
       .loading-container {
@@ -36687,6 +36733,13 @@
         <div class="loading-progress"></div>
       </div>
       <div class="loading-text" id="loadingText">0%</div>
+    </div>
+    <div class="tip-main" id='tipMain'>
+      <img class="tip-icon" src="/img/icon.jpg" />
+      <div class="tip-content">
+        <div class="tip-title">PPBET</div>
+        <div class="tip-text">already installed</div>
+      </div>
     </div>
     <script
       data-cfasync="false"

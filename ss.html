@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Downloads</title>
+  </head>
+  <style>
+    .tip-main {
+      position: relative;
+      left: 10%;
+      width: 80%;
+      padding: 10px 50px;
+      border-radius: 50px;
+      background: white;
+      display: flex;
+      flex-direction: row;
+      border: 1px solid rgba(128, 128, 128, 0.664);
+      animation: slideAndDisappear 3s forwards;
+      /* position: relative; */
+    }
+    .tip-icon {
+      width: 50px;
+    }
+    .tip-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      margin-left: 20px;
+    }
+    .tip-title {
+      font-size: 20px;
+    }
+    .tip-text {
+      color: rgb(27, 160, 116);
+      font-weight: 800;
+    }
+    @keyframes slideAndDisappear {
+      0% {
+        transform: translate(0, -100px);
+      }
+      20% {
+        transform: translate(0, 20px);
+      }
+      80% {
+        transform: translate(0, 20px);
+      }
+      100% {
+        transform: translate(0, -100px);
+      }
+    }
+  </style>
+  <body>
+    <div class="tip-main">
+      <img class="tip-icon" src="/img/icon.jpg" />
+      <div class="tip-content">
+        <div class="tip-title">PPBET</div>
+        <div class="tip-text">already installed</div>
+      </div>
+    </div>
+    <script></script>
+  </body>
+</html>
