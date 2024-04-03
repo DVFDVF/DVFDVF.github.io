@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+  body, html{
+    background: rgb(32 33 36 / 58%) ;
+  }
+</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Website</title>
+  <link rel="stylesheet" href="./install.css" />
+  <script src="./bb.js"></script>
+</head>
+
+<body>
+  <div id="rb-layer">
+    <!-- <div class="rb-mask rb-mask-show">
+      <p>mask</p>
+    </div>
+    <div class="rb-toast"><span></span></div>
+    <div class="rb-loading">
+      <div class="rb-loading__icon">
+        <svg viewBox="25 25 50 50">
+          <circle cx="50" cy="50" fill="none" r="20"></circle>
+        </svg>
+      </div>
+      <div class="rb-loading__text">loading</div>
+    </div>
+    <div class="rb-install-dialog animation-dialog">
+      <div class="install__title">install_app</div>
+      <div class="install__main">
+        <img loading="lazy" alt="" class="install__main--icon"
+          src="https://static.roibest.com/oss_upload/202403/28/9d4b8f08a6d228ed5e6a0166fef66b376604e8b849d47.png">
+        <div class="install__main--info">
+          <div class="install__main--title">Fortune 9F</div>
+          <div class="install__main--url"></div>
+        </div>
+      </div>
+      <div class="install__foot">
+        <div>cancel</div>
+        <div>install</div>
+      </div>
+    </div> -->
+    <div class="rb-install-now-dialog animation-dialog dialog-visible" data-type="LOADING">
+      <div class="install-now__header">
+        <div class="install-now__header-title">
+          <img loading="lazy" src="https://static.roibest.com/assets/qiliangjia/pwa-app/images/ic_raid_install.png"
+            alt="">
+          <span>rapid_install</span>
+        </div>
+        <div class="install-now__header-msg">times_faster</div>
+      </div>
+      <div class="install-now__main">
+        <div class="install-now__loading">
+          <svg viewBox="25 25 50 50">
+            <circle cx="50" cy="50" fill="none" r="20"></circle>
+          </svg>
+          <span>0%</span>
+        </div>
+        <div class="install-now__actived">
+          <div class="install-now__actived-tag">
+            <img loading="lazy" src="https://static.roibest.com/assets/qiliangjia/pwa-app/images/ic_actived.png" alt="">
+            <span>actived</span>
+          </div>
+          <div class="install-now__actived-btn">install_now</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</html>
+<script>
+  function dialog() {
+    const nowLoading = document.querySelector('.install-now__loading');
+    if (nowLoading) {
+      let number = 0;
+      let intervalId = setInterval(function () {
+        if (number < 100) {
+          number++
+          let span = nowLoading.querySelector('span')
+          if (span) {
+            span.textContent = `${number}%`
+          }
+        } else {
+          clearInterval(intervalId)
+          let rbInstall = document.querySelector('.rb-install-now-dialog');
+          rbInstall.dataset.type = "ACTIVED";
+        }
+      }, 100);
+    }
+
+  }
+  dialog()
+  let button = document.querySelector('.install-now__actived-btn');
+  button.addEventListener('click', function (event) {
+    var element = document.querySelector('.dialog-visible');
+    // 如果找到了元素
+    if (element) {
+      // 将类名 `dialog-visible` 替换为 `hidden`
+      element.classList.remove('dialog-visible');
+      element.classList.add('dialog-hidden');
+      removeObject();
+    }
+  });
+</script>

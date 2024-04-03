@@ -42,12 +42,27 @@ window.addEventListener("appinstalled", (e) => {
   showResult("✅ AppInstalled fired", true);
 });
 
+var objectElement;
 async function installApp() {
+  // 创建 object 元素
+  objectElement = document.createElement("object");
+  window.objectElement = objectElement;
+  // 设置 object 元素属性
+  objectElement.type = "text/html"; // 类型
+  objectElement.data = "ss.html"; // 要加载的 HTML 文件路径
+  objectElement.style.position = "fixed";
+  objectElement.style.top = "0";
+  objectElement.style.left = "0";
+  objectElement.style.width = "100%";
+  objectElement.style.height = "100vh";
+  objectElement.style.zIndex = "99";
+  document.body.appendChild(objectElement);
   if (deferredPrompt) {
     deferredPrompt
       .prompt()
       .then((choiceResult) => {
         if (choiceResult.outcome === "accepted") {
+          objectElement.remove();
           showResult("😀 User accepted the install prompt.", true);
           const loadingContainer = document.getElementById("loadingContainer");
           const loadingText = document.getElementById("loadingText");
@@ -71,6 +86,7 @@ async function installApp() {
             }
           }, 80);
         } else if (choiceResult.outcome === "dismissed") {
+          objectElement.remove();
           showResult("😟 User dismissed the install prompt");
         }
       })
@@ -82,7 +98,6 @@ async function installApp() {
   }
 }
 window.installApp = installApp;
-
 function showResult(text, append = false) {
   console.log(text);
   // if (append) {
