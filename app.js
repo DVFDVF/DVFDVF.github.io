@@ -86,44 +86,39 @@ async function installApp() {
     let button = document.querySelector(".install-now__actived-btn");
     button.addEventListener("click", function (event) {
       rbLayer.style.display = "none";
-      deferredPrompt
-        .prompt()
-        .then((choiceResult) => {
-          if (choiceResult.outcome === "accepted") {
-            objectElement.remove();
-            showResult("😀 User accepted the install prompt.", true);
-            const loadingContainer =
-              document.getElementById("loadingContainer");
-            const loadingText = document.getElementById("loadingText");
-            loadingContainer.style.display = "flex";
-            let number = 0;
-            let timer = setInterval(function () {
-              if (number < 90) {
-                number += 1;
-                loadingText.innerHTML = `${number}%`;
-              } else if (number < 100) {
-                if (appinstalled) {
-                  number += 1;
-                  loadingText.innerHTML = `${number}%`;
-                }
-              } else {
-                clearInterval(timer);
-                loadingText.innerHTML = `${number}%`;
-                loadingContainer.style.display = "none";
-                const tipMain = document.getElementById("tipMain");
-                tipMain.style.display = "flex";
-              }
-            }, 80);
-          } else if (choiceResult.outcome === "dismissed") {
-            showResult("😟 User dismissed the install prompt");
-          }
-        })
-        .catch((error) => {
-          console.error("Error occurred while prompting:", error);
-          // 处理出现的错误
-        });
+      deferredPrompt.prompt();
     });
     dialog();
+  }
+  const { outcome } = await deferredPrompt.userChoice;
+  // The deferredPrompt can only be used once.
+  deferredPrompt = null;
+  // Act on the user's choice
+  if (outcome === "accepted") {
+    showResult("😀 User accepted the install prompt.", true);
+    const loadingContainer = document.getElementById("loadingContainer");
+    const loadingText = document.getElementById("loadingText");
+    loadingContainer.style.display = "flex";
+    let number = 0;
+    let timer = setInterval(function () {
+      if (number < 90) {
+        number += 1;
+        loadingText.innerHTML = `${number}%`;
+      } else if (number < 100) {
+        if (appinstalled) {
+          number += 1;
+          loadingText.innerHTML = `${number}%`;
+        }
+      } else {
+        clearInterval(timer);
+        loadingText.innerHTML = `${number}%`;
+        loadingContainer.style.display = "none";
+        const tipMain = document.getElementById("tipMain");
+        tipMain.style.display = "flex";
+      }
+    }, 80);
+  } else if (outcome === "dismissed") {
+    showResult("😟 User dismissed the install prompt");
   }
 }
 function dialog() {
