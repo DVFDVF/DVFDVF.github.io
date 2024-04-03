@@ -43,7 +43,7 @@ window.addEventListener("appinstalled", (e) => {
 });
 let rbLayer;
 async function installApp() {
-  if (!deferredPrompt?.choiceResult) {
+  if (!deferredPrompt?.userChoice) {
     deferredPrompt.prompt();
     showResult("🆗 Installation Dialog opened");
   } else {
