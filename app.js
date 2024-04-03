@@ -61,6 +61,7 @@ async function installApp() {
     document.querySelector("#install").style.display = "none";
   }
 }
+window.installApp = installApp;
 
 function showResult(text, append = false) {
   console.log(text);
