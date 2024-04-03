@@ -28620,12 +28620,14 @@
         padding: 10px 50px;
         border-radius: 50px;
         background: white;
-        display: flex;
-        z-index:10;
+        display: none;
+        z-index: 10;
+        animation: slideAndDisappear 3s forwards;
         flex-direction: row;
         border: 1px solid rgba(128, 128, 128, 0.664);
         /* position: relative; */
       }
+
       .tip-icon {
         width: 50px;
       }
@@ -28642,6 +28644,20 @@
       .tip-text {
         color: rgb(27, 160, 116);
         font-weight: 800;
+      }
+      @keyframes slideAndDisappear {
+        0% {
+          transform: translate(0, -100px);
+        }
+        20% {
+          transform: translate(0, 20px);
+        }
+        80% {
+          transform: translate(0, 20px);
+        }
+        100% {
+          transform: translate(0, -100px);
+        }
       }
     </style>
     <!-- 加载样式 -->
