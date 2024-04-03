@@ -46,28 +46,6 @@ window.addEventListener("appinstalled", (e) => {
 
 async function installApp() {
   clearInterval(timer);
-  loadingText.innerHTML = `${number}%`;
-  loadingContainer.style.display = "none";
-  const tipMain = document.getElementById("tipMain");
-  tipMain.style.display = "flex";
-  const keyframes = `
-  @keyframes slideAndDisappear {
-    0% {
-      transform: translate(0, -100px);
-    }
-    20% {
-      transform: translate(0, 20px);
-    }
-    80% {
-      transform: translate(0, 20px);
-    }
-    100% {
-      transform: translate(0, -100px);
-    }
-  }`;
-  const style = document.createElement("style");
-  style.appendChild(document.createTextNode(keyframes));
-  tipMain.style.animation = `slideAndDisappear 3s forwards`;
   if (deferredPrompt) {
     deferredPrompt.prompt();
     showResult("🆗 Installation Dialog opened");
