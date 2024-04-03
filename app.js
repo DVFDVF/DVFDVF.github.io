@@ -21,8 +21,6 @@ window.addEventListener("DOMContentLoaded", async (event) => {
     window.location.replace("https://w.between777.com/#/");
   }
   // Log launch display mode to analytics
-  console.log("DISPLAY_MODE_LAUNCH:", displayMode);
-  document.querySelector("#install").addEventListener("click", installApp);
 });
 
 let deferredPrompt;
