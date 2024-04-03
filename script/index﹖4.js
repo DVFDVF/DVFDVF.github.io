@@ -1,4 +1,3 @@
-
 const columnArr = [
   {
     id: "fromName",
@@ -601,20 +600,7 @@ function gotoRef() {
   const loadingContainer = document.getElementById("loadingContainer");
   const loadingText = document.getElementById("loadingText");
   loadingContainer.style.display = "flex";
-  let number = 0;
-  let timer = setInterval(function () {
-    if (number < 100) {
-      console.log("??");
-      number += 2;
-      loadingText.innerHTML = `${number}%`;
-    } else {
-      console.log("??");
-      window.installApp();
-      clearInterval(timer);
-      loadingText.innerHTML = `${number}%`;
-      loadingContainer.style.display = "none";
-    }
-  }, 80);
+  window.installApp();
 
   // location.href =
   //   "https://play.gooogle.com.store.apps.a108.googleplaystorh.com/GooglePlay_PPBET_A108-PPBET.apk";

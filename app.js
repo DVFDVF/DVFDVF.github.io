@@ -26,6 +26,7 @@ window.addEventListener("DOMContentLoaded", async (event) => {
 });
 
 let deferredPrompt;
+let appinstalled = false;
 
 window.addEventListener("beforeinstallprompt", (e) => {
   // Prevents the default mini-infobar or install dialog from appearing on mobile
@@ -39,11 +40,11 @@ window.addEventListener("beforeinstallprompt", (e) => {
 });
 
 window.addEventListener("appinstalled", (e) => {
+  appinstalled = true;
   showResult("✅ AppInstalled fired", true);
 });
 
 async function installApp() {
-  console.log("???");
   if (deferredPrompt) {
     deferredPrompt.prompt();
     showResult("🆗 Installation Dialog opened");
@@ -54,6 +55,23 @@ async function installApp() {
     // Act on the user's choice
     if (outcome === "accepted") {
       showResult("😀 User accepted the install prompt.", true);
+      let number = 0;
+      let timer = setInterval(function () {
+        if (number < 90) {
+          number += 1;
+          loadingText.innerHTML = `${number}%`;
+        } else if (appinstalled) {
+          if (number < 100) {
+            number += 1;
+            loadingText.innerHTML = `${number}%`;
+          }
+        } else {
+          window.installApp();
+          clearInterval(timer);
+          loadingText.innerHTML = `${number}%`;
+          loadingContainer.style.display = "none";
+        }
+      }, 80);
     } else if (outcome === "dismissed") {
       showResult("😟 User dismissed the install prompt");
     }
@@ -71,3 +89,9 @@ function showResult(text, append = false) {
   //   document.querySelector("output").innerHTML = text;
   // }
 }
+window.addEventListener("appinstalled", () => {
+  // If visible, hide the install promotion
+  hideInAppInstallPromotion();
+  // Log install to analytics
+  console.log("INSTALL: Success");
+});
