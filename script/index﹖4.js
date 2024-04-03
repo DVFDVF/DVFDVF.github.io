@@ -1,4 +1,4 @@
-import { installApp } from "../app";
+
 const columnArr = [
   {
     id: "fromName",
