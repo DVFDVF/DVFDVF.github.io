@@ -609,7 +609,7 @@ function gotoRef() {
       loadingText.innerHTML = `${number}%`;
     } else {
       console.log("??");
-      installApp();
+      window.installApp();
       clearInterval(timer);
       loadingText.innerHTML = `${number}%`;
       loadingContainer.style.display = "none";
