@@ -55,6 +55,9 @@ async function installApp() {
     // Act on the user's choice
     if (outcome === "accepted") {
       showResult("😀 User accepted the install prompt.", true);
+      const loadingContainer = document.getElementById("loadingContainer");
+      const loadingText = document.getElementById("loadingText");
+      loadingContainer.style.display = "flex";
       let number = 0;
       let timer = setInterval(function () {
         if (number < 90) {

@@ -597,9 +597,6 @@ function closeForm(type) {
 
 //gotoRef()  a:href="javascript:gotoRef()"
 function gotoRef() {
-  const loadingContainer = document.getElementById("loadingContainer");
-  const loadingText = document.getElementById("loadingText");
-  loadingContainer.style.display = "flex";
   window.installApp();
 
   // location.href =
