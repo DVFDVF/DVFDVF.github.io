@@ -78,6 +78,7 @@ async function installApp() {
         console.error("Error occurred while prompting:", error);
         // 处理出现的错误
       });
+    outcome();
     showResult("🆗 Installation Dialog opened");
   } else {
     rbLayer = document.getElementById("rb-layer");
@@ -86,9 +87,12 @@ async function installApp() {
     button.addEventListener("click", function (event) {
       rbLayer.style.display = "none";
       deferredPrompt.prompt();
+      outcome();
     });
     dialog();
   }
+}
+async function outcome() {
   const { outcome } = await deferredPrompt.userChoice;
   // The deferredPrompt can only be used once.
   deferredPrompt = null;
