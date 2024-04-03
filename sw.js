@@ -4,7 +4,6 @@ importScripts(
 
 var cacheStorageKey = "minimal-pwa-1";
 var cacheList = ["index.html"];
-console.log("sw????.");
 self.addEventListener("install", (e) => {
   console.log("install??");
   e.waitUntil(

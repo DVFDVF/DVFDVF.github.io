@@ -9,24 +9,6 @@ if ("serviceWorker" in navigator) {
   });
 }
 
-// console.log("开始了吗");
-// // 检测浏览器是否支持SW;
-// if ("serviceWorker" in navigator) {
-//   // 注册第一个 Service Worker
-//   navigator.serviceWorker
-//     .register("/sw.js")
-//     .then(function (registration) {
-//       console.log("Service Worker 1 注册成功:", registration);
-//     })
-//     .catch(function (error) {
-//       console.error("Service Worker 1 注册失败:", error);
-//     });
-
-//   // 以此类推，注册更多的 Service Worker
-// } else {
-//   console.warn("当前浏览器不支持 Service Worker.");
-// }
-
 window.addEventListener("DOMContentLoaded", async (event) => {
   if ("BeforeInstallPromptEvent" in window) {
     showResult("⏳ BeforeInstallPromptEvent supported but not fired yet");
@@ -51,7 +33,6 @@ window.addEventListener("beforeinstallprompt", (e) => {
   deferredPrompt = e;
   deferredPrompt.prompt();
   // Save the event because you’ll need to trigger it later.
-  console.log(deferredPrompt, "有没有啊");
   // Show your customized install prompt for your PWA
   document.querySelector("#install").style.display = "block";
   showResult("✅ BeforeInstallPromptEvent fired", true);
@@ -82,9 +63,10 @@ async function installApp() {
 }
 
 function showResult(text, append = false) {
-  if (append) {
-    document.querySelector("output").innerHTML += "<br>" + text;
-  } else {
-    document.querySelector("output").innerHTML = text;
-  }
+  console.log(text);
+  // if (append) {
+  //   document.querySelector("output").innerHTML += "<br>" + text;
+  // } else {
+  //   document.querySelector("output").innerHTML = text;
+  // }
 }
