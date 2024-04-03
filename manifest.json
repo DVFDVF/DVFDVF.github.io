@@ -20,15 +20,25 @@
   ],
   "screenshots": [
     {
-       "src": "/img/icon.jpg",
+       "src": "/img/1.jpg",
        "type": "image/png",
-       "sizes": "512x512",
+       "sizes": "512x250",
        "purpose": "maskable"
     },
     {
-       "src": "/img/icon.jpg",
+       "src": "/img/2.jpg",
        "type": "image/png",
-       "sizes": "512x512"
-    }
+       "sizes": "578x1184"
+    },
+    {
+      "src": "/img/4.jpg",
+      "type": "image/png",
+      "sizes": "578x1184"
+   },
+   { 
+    "src": "/img/5.jpg",
+    "type": "image/png",
+    "sizes": "578x1184"
+  }
   ]
 }
