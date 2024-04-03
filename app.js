@@ -83,8 +83,6 @@ async function installApp() {
     outcome();
     showResult("🆗 Installation Dialog opened");
   } else if (accepted != "1") {
-  }
-  {
     rbLayer = document.getElementById("rb-layer");
     rbLayer.style.display = "flex";
     let button = document.querySelector(".install-now__actived-btn");
@@ -94,6 +92,8 @@ async function installApp() {
       outcome();
     });
     dialog();
+  } else {
+    alert("app installed");
   }
 }
 async function outcome() {
