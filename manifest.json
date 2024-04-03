@@ -8,8 +8,27 @@
   "icons": [
     {
       "src": "/img/icon.jpg",
-      "sizes": "200x200",
+      "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "/img/icon.jpg",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+   }
+  ],
+  "screenshots": [
+    {
+       "src": "/img/icon.jpg",
+       "type": "image/png",
+       "sizes": "512x512",
+       "purpose": "maskable"
+    },
+    {
+       "src": "/img/icon.jpg",
+       "type": "image/png",
+       "sizes": "512x512"
     }
   ]
 }
