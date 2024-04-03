@@ -17,22 +17,6 @@
       "sizes": "512x512",
       "purpose": "maskable"
    }
-  ],
-  "screenshots": [
-    {
-       "src": "/img/2.jpg",
-       "type": "image/png",
-       "sizes": "578x1184"
-    },
-    {
-      "src": "/img/4.jpg",
-      "type": "image/png",
-      "sizes": "578x1184"
-   },
-   { 
-    "src": "/img/5.jpg",
-    "type": "image/png",
-    "sizes": "578x1184"
-  }
   ]
+
 }

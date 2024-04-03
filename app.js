@@ -79,8 +79,6 @@ async function installApp() {
     } else if (outcome === "dismissed") {
       showResult("😟 User dismissed the install prompt");
     }
-    // We hide the install button
-    document.querySelector("#install").style.display = "none";
   }
 }
 window.installApp = installApp;
