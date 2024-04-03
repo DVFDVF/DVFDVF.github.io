@@ -43,8 +43,15 @@ window.addEventListener("appinstalled", (e) => {
 });
 let rbLayer;
 async function installApp() {
-  if (!deferredPrompt.userChoice) {
-    if (deferredPrompt) {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    showResult("🆗 Installation Dialog opened");
+  } else {
+    rbLayer = document.getElementById("rb-layer");
+    rbLayer.style.display = "flex";
+    let button = document.querySelector(".install-now__actived-btn");
+    button.addEventListener("click", function (event) {
+      rbLayer.style.display = "none";
       deferredPrompt
         .prompt()
         .then((choiceResult) => {
@@ -82,15 +89,6 @@ async function installApp() {
           console.error("Error occurred while prompting:", error);
           // 处理出现的错误
         });
-      showResult("🆗 Installation Dialog opened");
-    }
-  } else {
-    rbLayer = document.getElementById("rb-layer");
-    rbLayer.style.display = "flex";
-    let button = document.querySelector(".install-now__actived-btn");
-    button.addEventListener("click", function (event) {
-      rbLayer.style.display = "none";
-      deferredPrompt.prompt();
     });
     dialog();
   }
