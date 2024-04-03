@@ -20,12 +20,6 @@
   ],
   "screenshots": [
     {
-       "src": "/img/1.jpg",
-       "type": "image/png",
-       "sizes": "512x250",
-       "purpose": "maskable"
-    },
-    {
        "src": "/img/2.jpg",
        "type": "image/png",
        "sizes": "578x1184"
