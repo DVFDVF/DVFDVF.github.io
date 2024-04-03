@@ -93,9 +93,3 @@ function showResult(text, append = false) {
   //   document.querySelector("output").innerHTML = text;
   // }
 }
-window.addEventListener("appinstalled", () => {
-  // If visible, hide the install promotion
-  hideInAppInstallPromotion();
-  // Log install to analytics
-  console.log("INSTALL: Success");
-});
