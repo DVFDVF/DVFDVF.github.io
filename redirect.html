@@ -4,9 +4,48 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
+    <script
+      src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js"
+      defer
+    ></script>
+    <script>
+      window.OneSignalDeferred = window.OneSignalDeferred || [];
+      OneSignalDeferred.push(function (OneSignal) {
+        OneSignal.init({
+          appId: "9bccb14b-babe-4c89-9fba-fd17081ce45a",
+        });
+      });
+    </script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .body {
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+      }
+      .window-inactive {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <div class="body">
+      <iframe
+        src="https://w.between777.com/#/"
+        frameborder="0"
+        width="100%"
+        height="100%"
+        class="iframe"
+      >
+      </iframe>
+    </div>
+  </body>
 </html>
-<script>
-  window.location.replace("https://w.between777.com/#/");
-</script>
+<script></script>
