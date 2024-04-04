@@ -2,7 +2,7 @@
   "name": "BETWEEN",
   "short_name": "BETWEEN",
   "start_url": "./redirect.html",
-  "display": "fullscreen",
+  "display": "standalone",
   "background_color": "#fff",
   "theme_color": "#3eaf7c",
   "icons": [
